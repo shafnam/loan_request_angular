@@ -43,12 +43,12 @@ export class LoanComponent implements OnInit {
     console.warn(this.loanForm.value);
     this.loandetailObj = this.loanForm.value;
     this.loandetailObj.status = 'pending';
-    // let dataArr: loandetail[] = this.localStorageService.get('obj');
-    // if (dataArr == null) {
-    //   dataArr = [];
-    // }
-    // dataArr.push(this.loandetailObj);
-    // this.localStorageService.set('obj', dataArr);
+    let dataArr: loandetail[] = this.localStorageService.get('obj');
+    if (dataArr == null) {
+       dataArr = [];
+     }
+     dataArr.push(this.loandetailObj);
+    this.localStorageService.set('obj', dataArr);
     this.router.navigate(['loan-details']);
   }
 
