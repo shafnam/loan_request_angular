@@ -1,0 +1,41 @@
+<div class="row container-fluid" style="min-height: 722px;">
+  
+    <div class="col-lg-2" style="background: #000;">
+      <ul class="sidebar-nav mb-5 pt-5">
+        <li><a href="/loan">Add Loan</a></li>
+        <li><a class="active" href="/loan-details">Loan Details</a></li>
+      </ul>
+    </div>
+        
+    <div class="col-lg-10 mb-5 p-5" style="background: #efefef;">
+      
+      <h2 class="text-left mt-3 mb-5">Loan Requests</h2>
+
+      <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Loan Type</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Remark</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let loanDetail of loanDetails;let i = index">
+                <th>{{i}}</th>
+                <td>{{loanDetail.fullName}}</td>
+                <td>{{loanDetail.loanType}}</td>
+                <td>{{loanDetail.amount}}</td>
+                <td>{{loanDetail.expectedDate}}</td>
+                <td>{{loanDetail.status}}</td>
+                <td>{{loanDetail.remarks}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    </div>
+  
+  </div>

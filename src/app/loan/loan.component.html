@@ -1,0 +1,99 @@
+<div class="row container-fluid" style="min-height: 722px;">
+  
+  <div class="col-lg-2" style="background: #000;">
+    <ul class="sidebar-nav mb-5 pt-5">
+        <li><a class="active" href="/loan">Add Loan</a></li>
+        <li><a href="/loan-details">Loan Details</a></li>
+    </ul>
+  </div>
+      
+  <div class="col-lg-10 mb-5 p-5" style="background: #efefef;">
+    
+    <h2 class="text-left mt-3 mb-5">Welcome to Employee Loan Request Module</h2>
+ 
+    <form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-lg-3">
+                <label class="input-status" data-toggle="tooltip" data-placement="top">Full Name
+                </label>
+            </div>
+            <div class="col-lg-9">
+                <input type="text" formControlName="fullName" data-min-length="8" placeholder="Full Name">
+                <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                    <div *ngIf="f.fullName.errors.required">Full Name is required</div>
+                    <div *ngIf="f.fullName.errors.minlength">Full name must be at least 6 characters</div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-3">
+                <label class="input-status" data-toggle="tooltip" data-placement="top">Loan Type
+                </label>
+            </div>
+            <div class="col-lg-9">
+                <select type="text" formControlName="loanType" data-min-length="8">
+                    <option *ngFor="let c of loanTypes" [ngValue]="c">{{ c }}</option>
+                </select>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-3">
+                <label class="input-status" data-toggle="tooltip" data-placement="top">Amount
+                </label>
+            </div>
+            <div class="col-lg-9">
+                <input type="text" formControlName="amount" placeholder="Amount">
+                <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+                    <div *ngIf="f.amount.errors.required">Amount is required</div>
+                    <div *ngIf="f.amount.errors.pattern">Amount should be a number</div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-3">
+                <label class="input-status" data-toggle="tooltip" data-placement="top">Payment Scheme
+                </label>
+            </div>
+            <div class="col-lg-9">
+                <select type="text" formControlName="scheme" data-min-length="8">
+                    <option *ngFor="let c of schemes" [ngValue]="c">{{ c }}</option>
+                </select>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-3">
+                <label class="input-status" data-toggle="tooltip" data-placement="top">Expected Date
+                </label>
+            </div>
+            <div class="col-lg-9">
+                <input type="date" formControlName="expectedDate" data-min-length="8" placeholder="Expected Date">
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-3">
+                <label class="input-status" data-toggle="tooltip" data-placement="top">Remarks
+                </label>
+            </div>
+            <div class="col-lg-9">
+                <textarea rows="5" formControlName="remarks" cols="40"></textarea>
+            </div>
+        </div>
+        <br />
+        <div class="row submit-row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-9"><button type="submit">Submit</button></div>
+        </div>
+    </form>
+
+  </div>
+
+</div>
+
+
+
+
